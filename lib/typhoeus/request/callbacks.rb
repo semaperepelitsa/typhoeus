@@ -143,6 +143,7 @@ module Typhoeus
         end
 
         callbacks.each do |callback|
+          Ethon.logger.debug "ETHON: #{easy.object_id} - Typhoeus.on_complete #{callback.inspect}"
           self.response.handled_response = callback.call(self.response)
         end
       end
